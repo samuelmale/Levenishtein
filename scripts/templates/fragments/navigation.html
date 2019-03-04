@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<title>Header</title>
+</head>
+
+<body>
+
+<nav class="navbar navbar-inverse" th:fragment="navigation">
+		<div class="container">
+			<div class="navbar-header">
+			  <img width="50px" height="50px" th:src="@{/images/coins.png}" alt="memorynotfound logo"/> 
+			
+				<a class="navbar-brand" href="#">Saccosoft</a>			
+			</div>
+			
+    
+			
+			<div id="navbar" class="collapse navbar-collapse">
+				<ul class="nav navbar-nav">
+			<!--		
+					<li><a href="/navbar/home">HOME</a></li>
+					<li><a href="/navbar/info">|| MEMBER INFORMATION</a></li>
+					<li><a href="/clientbiodata/users">MEMBER LIST ||</a></li>
+					<li><a href="/navbar/loan">LOANS</a></li>
+					<li><a href="/loan/loans">LOANS LIST ||</a></li>
+					<li><a href="/navbar/save">SAVINGS</a></li>
+					<li><a href="/clientsavings/savingslist">SAVINGS LIST ||</a></li>
+					<li><a href="/navbar/withdraw">WITHDRAW</a></li>
+					<li><a href="/navbar/memblist">SACCO MEMBERSHIP LIST</a></li>
+					<li><a href="/navbar/admin">ADMINISTRATION</a></li>
+					<li><a href="/navbar/about">||ABOUT</a></li> -->
+		<li><a href="/navbar/home">Home</a></li>
+	<!-- Client Personal info -->
+	<li class="dropdown">
+<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+Client Information <b class="caret"></b>
+</a>
+<ul class="dropdown-menu">
+<li class="divider"></li>
+<li><a href="/navbar/info"> REGISTER MEMBER </a></li>
+<li class="divider"></li>
+<li><a href="/clientbiodata/users">MEMBER LIST </a></li>
+<li class="divider"></li>
+<li><a href="/navbar/memblist">SACCO MEMBERSHIP LIST</a></li>
+<li class="divider"></li>
+<li><a href="#">CLIENT COHORT BUILDER</a></li>
+
+</ul>
+	</li>
+	
+	<!-- Client Loan info -->
+	<li class="dropdown">
+<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+Loan Information<b class="caret"></b>
+</a>
+<ul class="dropdown-menu">
+<li class="divider"></li>
+<li><a href="/loan/loan">LOANS</a></li>
+<li class="divider"></li>
+<li><a href="/loan/loans">LOANS LIST </a></li>
+<li class="divider"></li>
+<li><a href="#">LOANS COHORT BUILDER </a></li>
+
+</ul>
+	</li>
+	
+	<!-- Client Savings info -->
+	<li class="dropdown">
+<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+Savings<b class="caret"></b>
+</a>
+<ul class="dropdown-menu">
+<li class="divider"></li>
+<li><a href="/navbar/save">SAVINGS</a></li>
+<li class="divider"></li>
+<li><a href="/clientsavings/users">SAVINGS LIST </a></li>
+<li class="divider"></li>
+<li><a href="#">SAVINGS COHORT BUILDER </a></li>
+</ul>
+	</li>
+	
+	<!-- Accounts -->
+	<li class="dropdown">
+<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+Accounts<b class="caret"></b>
+</a>
+<ul class="dropdown-menu">
+<li class="divider"></li>
+<li><a href="/navbar/withdraw">WITHDRAW</a></li>
+<li class="divider"></li>
+<li><a href="#">WITHDRAWER LIST </a></li>
+<li class="divider"></li>
+<li><a href="#">WITHDRAWER COHORT BUILDER </a></li>
+
+<li class="divider"></li>
+<li><a href="#">ACCOUNT TYPES</a></li>
+</ul>
+	</li>
+	<!-- Client Savings info -->
+	<li class="dropdown">
+<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+Savings<b class="caret"></b>
+</a>
+<ul class="dropdown-menu">
+<li class="divider"></li>
+<li><a href="/navbar/save">SELL SHARES</a></li>
+<li class="divider"></li>
+<li><a href="#">SHARE HOLDERS LIST </a></li>
+<li class="divider"></li>
+<li><a href="#">SHARE COHORT BUILDER </a></li>
+</ul>
+	</li>
+	
+	<li><a href="/navbar/admin">Administration Settings</a></li>
+	<li><a href="/navbar/about">About</a></li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+
+</body>
+
+</html>

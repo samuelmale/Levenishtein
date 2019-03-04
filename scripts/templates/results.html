@@ -1,0 +1,24 @@
+{% extends "layout.html" %}
+{% block title %} Results {% endblock %}
+{% block content %}
+{% if session['logged_in'] %}
+ 
+You're logged in already!
+ 
+{% else %}
+
+<ul>
+  <li id="logout" class="logout">
+  <a href="/index">INDEX PAGE</a>
+  <a>|</a>
+  <a href="/logout/">LOGOUT</a> 
+ 
+  </li>
+
+</ul>
+<div class="results">
+<label>patient is a Match</label>
+<label>Patient is a possible Match</label>
+<label>Non Match</label>
+</div>
+{% endblock %} 
