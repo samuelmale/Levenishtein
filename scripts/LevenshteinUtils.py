@@ -31,6 +31,7 @@ def __calc_levenshtein_distance__(patient: Patient, search_candidate):
             weight_flag = 0.15
 
         inner_value += (((1 - Levenshtein.ratio(getattr(patient, prop), getattr(search_candidate, prop))) * weight_flag) ** 2)
+
         weight_flag += 1
     distance = math.sqrt(inner_value)
     patient.distance_from_other_patient = distance
@@ -63,4 +64,8 @@ def do_levenshtein_search(patients, search_candidate):
         __categorize_distances__(pat)
 
     # Filter out non matches
-    return filter(lambda pat: Patient(pat).match != Matcher.NO_MATCH, patients)
+    # return list(filter(lambda pat: Patient(pat).match != Matcher.NO_MATCH, patients))
+    return patients
+
+
+print(Levenshtein.ratio("sam", "samh"))

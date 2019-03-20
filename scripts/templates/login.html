@@ -2,33 +2,60 @@
 {% block title %} Login {% endblock %}
 {% block content %}
 
-{% if session['logged_in'] %}
- 
-You're logged in already!
- 
-{% else %}
- 
-<script type="text/javascript" src="/static/javascript/passwordToggle.js"></script>
-<script type="text/javascript" src="/static/javascript/errorLogin.js"></script>
-<form action="/login" method="POST">
-<div class="login">
-<div class="login-screen">
-<div class="app-title">
-<h1>Login</h1>
+<style>
+input[type=text], input[type=password] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+input[type=submit] {
+  width: 100px;
+  background-color: #4CAF50;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+
+}
+
+input[type=submit]:hover {
+  background-color: #45a049;
+}
+
+#data-picker {
+  border-radius: 5px;
+  padding: 20px;
+  width: 50%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+h4 {
+	color: red;
+}
+
+#logout {
+	display: none;
+}
+</style>
+<div id="data-picker">
+    {% if message %}
+		<h4 id="message">{{message}}</h4>
+	{% endif %}
+    <form id="pat-particulars" method="post" action="{{ url_for('login') }}">
+        <label>Username</label>
+		<input type="text" name="user-name" placeholder="Enter Username">
+		<label>Password</label>
+		<input type="password" name="password" placeholder="Enter Password">
+		<input type="submit" value="Login">
+    </form>
 </div>
-<div class="login-form">
-<div class="control-group">
-				<input type="text" class="login-field" id="username"  placeholder="username" name="username" onforminput="wrongCredentials()" required="required">
-<label class="login-field-icon fui-user" for="login-name"></label></div>
-<div class="control-group">
-				<input type="password"   class="login-field" id="password"  placeholder="password" name="password"  onClick="wrongCredentials()" required="required">
-				<br><input type="checkbox" onclick="passwordToggle()">Show Password
-<label class="login-field-icon fui-lock" for="login-pass"></label></div>
-<input type="submit" value="Log in" class="btn btn-primary btn-large btn-block">
- 
-</div>
-</div>
-</div>
-</form>{% endif %}
 {% endblock %}
 

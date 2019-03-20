@@ -1,21 +1,66 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
+    <head class="header">
         <meta charset="UTF-8">
         <title>{%block title %}{% endblock%}</title>
+        <link rel="stylesheet" href="/static/css/styles." type="text/css">
+        <style>
+            #header {
+                width: 50%;
+                margin-left: auto;
+                margin-right: auto;
+            }
+            #footer {
+
+                background-color: #e0ebeb;
+                position: fixed;
+                left: 0;
+                bottom: 0;
+                width: 100%;
+                text-align: center;
+                height: 60px;
+                vertical-align: middle;
+                line-height: 60px;
+
+            }
+            body {
+                font-family: georgia;
+
+            }
+
+            #logout {
+                position: absolute;
+                top: 0;
+                right: 0;
+                width: 100px;
+                text-align:right;
+                padding: 5px;
+            }
+            #content {
+                margin-bottom: 60px;
+            }
+        </style>
     </head>
     <body>
         <div id="header">
-            <h1>
+            <h2>
                 Levenshtein-based Patient Search Engine
-            </h1>
+            </h2>
+            <div id="logout">
+                <a href="{{ url_for('logout') }}">Log out</a>
+            </div>
         </div>
 
         <div id="content">
             {% block content %} {% endblock %}
+
         </div>
-        <div id="footer">
-            <br>Powered by Openmrs
-        </div>
+
+        <footer id="footer">
+
+                <div class="powered-by">Powered by <b>OpenMRS</b></div>
+
+        </footer>
+
     </body>
 </html>

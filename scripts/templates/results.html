@@ -1,24 +1,49 @@
 {% extends "layout.html" %}
-{% block title %} Results {% endblock %}
-{% block content %}
-{% if session['logged_in'] %}
- 
-You're logged in already!
- 
-{% else %}
+  {% block title %} Results {% endblock %}
+  {% block content %}
 
-<ul>
-  <li id="logout" class="logout">
-  <a href="/index">INDEX PAGE</a>
-  <a>|</a>
-  <a href="/logout/">LOGOUT</a> 
- 
-  </li>
+  <h3>Search Results</h3>
+  <fieldset>
+    <legend>Match</legend>
+    {% if match %}
+      <ul>
+        <li><a href="http://localhost:8080/openmrs/coreapps/clinicianfacing/patient.page?patientId={{match.uuid}}">{{ match.given_name }} {{match.family_name}}</a></li>
+      </ul>
+    {% else %}
+      <b>None</b>
+    {% endif %}
+  </fieldset>
+<br> <br>
+<fieldset>
+  <legend>Possible Matches</legend>
+  {% if possible_matches %}
+    <ul>
+      {% for pat in possible_matches%}
+        <li><a href="http://localhost:8080/openmrs/coreapps/clinicianfacing/patient.page?patientId={{pat.uuid}}">{{ pat.given_name }} {{pat.family_name}}</a></li>
+      {% endfor %}
 
-</ul>
-<div class="results">
-<label>patient is a Match</label>
-<label>Patient is a possible Match</label>
-<label>Non Match</label>
-</div>
+    </ul>
+  {% else %}
+    <b>None</b>
+  {% endif %}
+
+
+</fieldset>
+<br><br>
+<fieldset>
+  <legend>None Results</legend>
+  {% if others %}
+    <ul>
+      {% for pat in others%}
+        <li><a href="http://localhost:8080/openmrs/coreapps/clinicianfacing/patient.page?patientId={{pat.uuid}}">{{ pat.given_name }} {{pat.family_name}}</a></li>
+      {% endfor %}
+
+    </ul>
+  {% else %}
+    <b>None</b>
+  {% endif %}
+
+
+</fieldset>
+
 {% endblock %} 
